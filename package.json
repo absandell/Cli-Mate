@@ -3,6 +3,25 @@
     "test": "jest"
   },
   "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
     "jest": "^27.2.5"
-  }
+  },
+  "name": "cli-mate",
+  "description": "Cli-Mate is a carbon-emissions tracking app. Users can create profiles to view their to-date carbon savings and calculate their daily savings based on distance walked, bussed, or biked. \r ## How to install\r ```\r npm install\r ```",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/absandell/Cli-Mate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/absandell/Cli-Mate/issues"
+  },
+  "homepage": "https://github.com/absandell/Cli-Mate#readme"
 }
