@@ -2,6 +2,9 @@
   <Header />
   <div id="nav">
     <router-link to="/">Login</router-link>
+    <router-link to="/">App</router-link>
+    <router-link to="/">Activities</router-link>
+    <router-link to="/">How</router-link>
   </div>
   <router-view/>
 </template>
