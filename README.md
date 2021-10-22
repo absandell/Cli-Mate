@@ -12,9 +12,17 @@ npm run serve
 ```
 
 ## Compiles and minifies for production
+First, run:
 ```
 npm run build
 ```
+Next, copy the files within the build folder:
+> "CSS"
+> "JS"
+> "favicon.ico"
+> "index.html"
+and paste them in the folder /app/views.
+To run Express / Vue Production Server, see below.
 
 ## Lints and fixes files
 ```
