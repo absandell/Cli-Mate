@@ -2,15 +2,18 @@
     <HomeButton class='btnHome'/>
     <h1 class='title'>Activities Log</h1>
     <h1 class='body'>Transportation | Distance | Performance</h1>
+    <LoginButton />
 </template>
 
 <script>
 import HomeButton from './components/HomeButton'
+import LoginButton from './components/LoginButton.vue'
 
 export default {
   name: 'How',
   components: {
     HomeButton,
+    LoginButton,
   }
 }
 </script>

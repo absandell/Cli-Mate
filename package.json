@@ -10,11 +10,16 @@
   "scripts": {
     "test": "jest",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --dest build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "cookie-session": "^1.4.0",
     "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "passport": "^0.5.0",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-google-oauth20": "^2.0.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -23,9 +28,9 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
+    "ejs": "^3.1.6",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
-    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "jest": "^27.2.5"
   },
