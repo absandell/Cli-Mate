@@ -9,7 +9,7 @@ export default {
     name: 'LoginButton',
     methods:{
     GoApp(){
-        window.location.href = '/App';
+        window.location.href = '/google';
         }
     }
 }

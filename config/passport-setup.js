@@ -1,12 +1,28 @@
 const passport = require('passport');
-const GoogleConnect = require('passport-google-oauth20');
-const keys = require('./keys.js');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const keys = require('./keys');
+
+//Replace user with user.id
+
+passport.serializeUser(function(user, done){
+    done(null, user);
+});
+
+passport.deserializeUser(function(user, done){
+   // User.findById(id, function(err, user){
+        done(null, user);
+    //});
+});
+
 passport.use(
-    new GoogleConnect({
-        callbackURL: '/auth/google/redirect',
+    new GoogleStrategy({
         clientID: keys.google.clientID,
-        clientSecre: keys.google.clientSecret
-    }, () =>{
-        // Passport callback function
-    })
-)
+        clientSecret: keys.google.clientSecret,
+        callbackURL: 'http://localhost:8080/google/callback'
+    },
+    function(accessToken, refreshToken, profile, done){
+        //User.findOrCreate({googleID : profile.id}, function (err, user){
+            return done(null, profile)
+        //});
+    }
+));

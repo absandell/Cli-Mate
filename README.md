@@ -6,7 +6,7 @@ Cli-Mate is a carbon-emissions tracking app. Users can create profiles to view t
 npm install
 ```
 
-## Compiles and hot-reloads for development
+## Compiles and hot-reloads Vue Server for development
 ```
 npm run serve
 ```
@@ -19,6 +19,11 @@ npm run build
 ## Lints and fixes files
 ```
 npm run lint
+```
+
+## How to compile Express / Vue Production Server
+```
+node app.js
 ```
 
 ## How to run tests
