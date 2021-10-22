@@ -19,10 +19,10 @@ var corsOptions = {
 };
 
 // set up routes
-//app.use(cookieSession({
- //   name: 'Cli-Mate Session',
-  //  keys: ['key1', 'key2']
-//}));
+app.use(cookieSession({
+    name: 'Cli-Mate Session',
+    keys: ['key1', 'key2']
+}));
 
 const isLoggedIn = (req, res, next) => {
     req.user ? next() : res.sendStatus(401);
