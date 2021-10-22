@@ -1,5 +1,7 @@
 <template>
+    <div class='bg'>
         <Header />
+    </div>
 </template>
 
 <script>
@@ -85,7 +87,7 @@ body {
   text-decoration: none;
   font-size: 30px;
   font-family: inherit;
-  left: 90%;
+  left: 94%;
 }
 .btn:focus {
   outline: none;
@@ -100,7 +102,7 @@ body {
 .imgExample {
     position: relative;
     text-align: center;
-    left: 7%;
+    left: 0%;
 }
 .textLog {
     position: relative;
@@ -137,5 +139,21 @@ body {
   font-family: inherit;
   top: 110px;
   left: 44.1%;
+}
+.bg {
+   border: 2px solid black;
+  padding: 100px;
+  padding-bottom: 150px;
+  background: url(./assets/bg1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.textGen {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    top: 100px;
+    left: 0px;
+    padding-top: 50px;
 }
 </style>

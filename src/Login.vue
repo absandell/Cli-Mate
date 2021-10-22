@@ -1,7 +1,9 @@
 <template>
-    <h1 class='title'>Welcome to Cli-Mate!</h1>
-    <LoginEntry class='LoginEntry'/>
-    <LoginButton class='LoginButton' />
+    <div class='bg'>
+        <h1 class='title'>Welcome to Cli-Mate!</h1>
+        <LoginEntry class='LoginEntry'/>
+        <LoginButton class='LoginButton' />
+    </div>
 </template>
 
 <script>
@@ -152,5 +154,13 @@ body {
     position: relative;
     top: 60px;
     left: 45%;
+}
+.bg {
+   border: 2px solid black;
+  padding: 100px;
+  padding-bottom: 470px;
+  background: url(./assets/bg1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>

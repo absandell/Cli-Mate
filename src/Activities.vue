@@ -1,19 +1,18 @@
 <template>
-    <HomeButton class='btnHome'/>
-    <h1 class='title'>Activities Log</h1>
-    <h1 class='body'>Transportation | Distance | Performance</h1>
-    <LoginButton />
+    <div class='bg'>
+        <HomeButton class='btnHome'/>
+        <h1 class='title'>Activities Log</h1>
+        <h1 class='body'>Transportation | Distance | Performance</h1>
+    </div>
 </template>
 
 <script>
 import HomeButton from './components/HomeButton'
-import LoginButton from './components/LoginButton.vue'
 
 export default {
   name: 'How',
   components: {
     HomeButton,
-    LoginButton,
   }
 }
 </script>
@@ -170,5 +169,13 @@ body {
   font-family: inherit;
   top: 0%;
   left: 45%;
+}
+.bg {
+   border: 2px solid black;
+  padding: 100px;
+  padding-bottom: 470px;
+  background: url(./assets/bg1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
     <header>
         <LogoutButton class='btnLogout'/>
-        <h1 class='title'>Cli-Mate</h1>
         <h1 class='welcome'>Welcome: username</h1>
         <HowToUseButton class='btnHow'/>
         <PrevLogButton class='btnPrev'/>
@@ -12,7 +11,7 @@
         <TransportSelect class='TransportSelect'/>
         <DestinationEntry class='DestinationEntry'/>
         <ActivityButton class='btnActivity' />
-        <h1 class='textLog'>General Information:</h1>
+        <h1 class='textGen'>General Information:</h1>
     </header>
 </template>
 
