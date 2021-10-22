@@ -28,3 +28,4 @@ config/keys.js
 
 # Build Files
 build/
+app/views/**
