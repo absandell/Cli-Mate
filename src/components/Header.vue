@@ -1,6 +1,7 @@
 <template>
     <header>
         <LogoutButton class='btnLogout'/>
+        <LoginButton class='btnLogin'/>
         <h1 class='welcome'>Welcome: username</h1>
         <HowToUseButton class='btnHow'/>
         <PrevLogButton class='btnPrev'/>
@@ -23,6 +24,7 @@ import LogoutButton from './LogoutButton'
 import TransportSelect from './TransportSelect'
 import DestinationEntry from './DestinationEntry'
 import ActivityButton from './ActivityButton'
+import LoginButton from './LoginButton'
 
 export default {
     name: 'Header',
@@ -34,6 +36,7 @@ export default {
     TransportSelect,
     DestinationEntry,
     ActivityButton,
+    LoginButton,
   }
 }
 </script>

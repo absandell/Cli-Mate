@@ -156,4 +156,19 @@ body {
     left: 0px;
     padding-top: 50px;
 }
+.btnLogin {
+  position: relative;
+  display: inline-block;
+  background: red;
+  color: #fff;
+  border: none;
+  padding: 10px 40px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: inherit;
+  right: 10%;
+}
 </style>
