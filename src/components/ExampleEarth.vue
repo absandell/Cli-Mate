@@ -1,5 +1,5 @@
 <template>
-    <img src="../assets/exampleearth.png">
+    <img src="../assets/Earth5.png">
 </template>
 
 <script>

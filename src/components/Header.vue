@@ -2,7 +2,7 @@
     <header>
         <LogoutButton class='btnLogout'/>
         <LoginButton class='btnLogin'/>
-        <h1 class='welcome'>Welcome: username</h1>
+        <h1 class='welcome'>Welcome to Cli-Mate</h1>
         <HowToUseButton class='btnHow'/>
         <PrevLogButton class='btnPrev'/>
         <ExampleEarth class='imgExample'/>
