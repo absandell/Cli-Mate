@@ -1,4 +1,3 @@
-import { expectation } from 'sinon';
 import router from '../app/routes/auth-routes'
 
 afterEach(() => {
