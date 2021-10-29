@@ -1,7 +1,9 @@
 <template>
-    <div class='bg'>
-        <Header />
-    </div>
+  <div id="nav">
+    <router-link to="/">Login</router-link>
+    <router-link to="/">App</router-link>
+  </div>
+  <router-view/>
 </template>
 
 <script>
