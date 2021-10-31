@@ -1,7 +1,5 @@
 <template>
-    <div class="submit">
-        <button v-on:click="GoApp">Login</button>
-    </div>
+        <button class='btnLogin' v-on:click="GoApp">Login</button>
 </template>
 
 <script>
