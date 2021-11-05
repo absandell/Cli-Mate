@@ -4,6 +4,7 @@ const passport = require('passport')
 const cookieSession = require('cookie-session');
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require("./config/db");
 require('./config/passport-setup');
 
 const path = __dirname + '/app/views/';
@@ -27,9 +28,10 @@ app.use(cookieSession({
 const isLoggedIn = (req, res, next) => {
     req.user ? next() : res.sendStatus(401);
 }
+
 app.use(cors(corsOptions));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -61,6 +63,9 @@ app.get('/logout', (req, res)=> {
     req.logout();
     res.redirect('/');
 })
+
+var routes = require('./api/routes/todoRoutes');
+routes(app)
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
