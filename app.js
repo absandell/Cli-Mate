@@ -13,6 +13,12 @@ require('./config/passport-setup');
 const path = __dirname + '/app/views/';
 const app = express();
 
+app.use(cookieSession({
+    name: 'Cli-Mate Session',
+    maxAge: 24 * 60 * 60 * 1000,
+    keys:[keys.session.cookieKey]
+}));
+
 mongoose.connect(keys.mongoose.uri, () => {
     console.log("DB connection established!");
 }),
@@ -28,12 +34,6 @@ app.use(express.static(path));
 var corsOptions = {
     origin: "http://localhost:8080"
 };
-
-// set up routes
-app.use(cookieSession({
-    name: 'Cli-Mate Session',
-    keys: ['key1', 'key2']
-}));
 
 const isLoggedIn = (req, res, next) => {
     req.user ? next() : res.sendStatus(401);
