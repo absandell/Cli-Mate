@@ -1,17 +1,16 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const keys = require('./keys');
-
-//Replace user with user.id
+const User = require('../models/user-model')
 
 passport.serializeUser(function(user, done){
-    done(null, user);
+    done(null, user.id);
 });
 
-passport.deserializeUser(function(user, done){
-   // User.findById(id, function(err, user){
-        done(null, user);
-    //});
+passport.deserializeUser(function(id, done){
+    User.findById(id).then((user)=>{
+        done(null, user,id);
+    });
 });
 
 passport.use(
@@ -21,8 +20,18 @@ passport.use(
         callbackURL: 'http://localhost:8080/google/callback'
     },
     function(accessToken, refreshToken, profile, done){
-        //User.findOrCreate({googleID : profile.id}, function (err, user){
-            return done(null, profile)
-        //});
+        User.findOne({googleId: profile.id}).then((currentUser)=> {
+            if (currentUser){
+                console.log('duplicate user: ' + currentUser);
+            }
+            else{
+                new User({
+                    username: profile.displayName,
+                    googleId: profile.id
+                }).save().then((newUser)=> {
+                    console.log('new user created: ' + newUser);
+                })
+            }
+        })
     }
 ));

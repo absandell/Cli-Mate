@@ -4,11 +4,21 @@ const passport = require('passport')
 const cookieSession = require('cookie-session');
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const keys = require('./config/keys');
+const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
 require("./config/db");
 require('./config/passport-setup');
 
 const path = __dirname + '/app/views/';
 const app = express();
+
+mongoose.connect(keys.mongoose.uri, () => {
+    console.log("DB connection established!");
+}),
+err => {
+    {console.log("Errror connecting to DB:", err);}
+};
 
 app.use(express.static(path));
 
@@ -48,15 +58,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/failed',(req, res)=> res.send('You failed to log in'))
-app.get('/good',isLoggedIn, (req, res) => res.send('Welcome ' + req.user.displayName))
+//app.get('/good',isLoggedIn, (req, res) => res.send('Welcome ' + req.user.displayName))
 app.get('/google',
     passport.authenticate('google', {scope : ['profile', 'email']}));
 
-app.get('/google/callback', 
-    passport.authenticate('google', {failureRedirect: '/failed'}),
-    function(req, res){
-        res.redirect('/good');
-    });
+app.get('/google/callback', passport.authenticate('google'), (req,res) => {
+    res.redirect('/');
+});
 
 app.get('/logout', (req, res)=> {
     req.session = null;
@@ -64,13 +72,10 @@ app.get('/logout', (req, res)=> {
     res.redirect('/');
 })
 
-var routes = require('./api/routes/todoRoutes');
-routes(app)
+////var routes = require('./api/dbroutes/todRoutes');
+//routes(app)
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
-//app.listen(3000, () => {
- //   console.log('app now listening for requests on port 3000');
-//});

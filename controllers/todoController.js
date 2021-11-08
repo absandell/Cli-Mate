@@ -1,4 +1,4 @@
-const Login = require("../models/todoModel");
+const Login = require("../models/user-model");
 
 //define cntrlr fxns
 
