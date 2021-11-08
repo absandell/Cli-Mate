@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const keys = require('./keys');
 
-var uri = "mongodb+srv://climateAdmin:climateAdminpassword@climate-cluster1.47ecp.mongodb.net/user?retryWrites=true&w=majority";
+var uri = keys.mongoose.uri;
 
 const options = {
     useNewUrlParser: true,
