@@ -7,11 +7,27 @@
       text-align: center;
       font-size: 100px;
   }
-  .welcome {
-      text-align: center;
-      font-size: 50px;
-      padding: 25px;
+
+  .headerbg {
+    background-color:white;
+    width: 100%;
+    border-color: (0,255,255 1.0);
+    height: 90px;
+    margin-bottom: 15px;
   }
+
+  .welcome {
+    font:inherit;
+    color: green;
+    display: inline-block;
+    position: absolute;
+    top: 8%;
+    left: 20px;
+    font-size: 60px;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+
   body {
     font-family: 'Poppins', sans-serif;
   }
@@ -26,18 +42,19 @@
   }
   .btnHow {
     position: relative;
-    display: inline-block;
+    display: block;
     background: #000;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    margin: 5px;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     font-size: 30px;
     font-family: inherit;
-    left: 0.5%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
   }
   .btnPrev {
     position: relative;
@@ -54,8 +71,8 @@
     font-family: inherit;
     left: 61%;
   }
-  .btnLogout {
-    position: relative;
+  .btnLogin {
+    position: absolute;
     display: inline-block;
     background: red;
     color: #fff;
@@ -67,7 +84,28 @@
     text-decoration: none;
     font-size: 30px;
     font-family: inherit;
-    left: 90%;
+    top: 8%;
+    right: 20px;
+    width: 150px;
+    transform: translateY(-50%)
+    }
+  .headerbg.btnLogout {
+    position: absolute;
+    display: inline-block;
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: inherit;
+    top: 8%;
+    left: 20px;
+    width: 150px;
+    transform: translateY(-50%)
   }
   .btn:focus {
     outline: none;
@@ -79,17 +117,29 @@
     display: block;
     width: 1000%;
   }
+  .planet{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
   .imgExample {
-      position: relative;
-      text-align: center;
-      left: -3%;
+    top: 16%;
+    width: 240px;
+  }
+  .info{
+    margin-top: 15px;
+    position: relative;
+    background-color: green;
+    height: 300px;
   }
   .textLog {
-      position: relative;
-      text-align: center;
-      font-size: 30px;
-      top: 100px;
-      left: 0px;
+    color:white;
+    position: relative;
+    text-align: left;
+    font-size: 30px;
+    top: 20px;
+    left: 0px;
   }
   .TransportSelect {
       position: relative;
@@ -126,6 +176,7 @@
     background: url("../bg1.png");
     background-repeat: no-repeat;
     background-size: cover;
+    height:100%;
   }
   .textGen {
       position: relative;
@@ -135,23 +186,6 @@
       left: 0px;
       padding-top: 50px;
   }
-  .btnLogin {
-    position: relative;
-    display: inline-block;
-    background: #000;
-    color: #fff;
-    border: none;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 30px;
-    font-family: inherit;
-    top: 0px;
-    right: 9%;
-    width: 120px;
-    height: 60px;
-    }
 
   .popup .overlay {
     position: fixed;
