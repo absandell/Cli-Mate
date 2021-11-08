@@ -50,15 +50,8 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-//const db = require("./app/models");
-
-//db.sequelize.sync();
-
-//app.use('/auth', authRoutes);
-
-// create home route
 app.get('/', authCheck, (req, res) => {
-    res.sendFile(path + "index.html");
+    res.sendFile(path + "index.html", { user: req.user });
 });
 
 app.get('/google',
@@ -66,7 +59,6 @@ app.get('/google',
 }));
 
 app.get('/google/callback', passport.authenticate('google'), (req,res) => {
-    //res.send(req.user)
     res.redirect('/');
 });
 
@@ -75,9 +67,6 @@ app.get('/logout', (req, res)=> {
     req.logout();
     res.redirect('/');
 })
-
-app.get('/failed',(req, res)=> res.send('You failed to log in'))
-//app.get('/good',isLoggedIn, (req, res) => res.send('Welcome ' + req.user.displayName))
 
 
 ////var routes = require('./api/dbroutes/todRoutes');
