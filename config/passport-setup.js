@@ -23,6 +23,7 @@ passport.use(
         User.findOne({googleId: profile.id}).then((currentUser)=> {
             if (currentUser){
                 console.log('duplicate user: ' + currentUser);
+                done(null, currentUser);
             }
             else{
                 new User({
@@ -30,6 +31,7 @@ passport.use(
                     googleId: profile.id
                 }).save().then((newUser)=> {
                     console.log('new user created: ' + newUser);
+                    done(null, newUser);
                 })
             }
         })

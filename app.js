@@ -6,11 +6,15 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const keys = require('./config/keys');
 const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
-require("./config/db");
+//require("./config/db");
 require('./config/passport-setup');
 
 const path = __dirname + '/app/views/';
+
+const authCheck = (req, res, next) => {
+    req.user ? next() : res.redirect('/google')
+}
+
 const app = express();
 
 app.use(cookieSession({
@@ -36,7 +40,7 @@ var corsOptions = {
 };
 
 const isLoggedIn = (req, res, next) => {
-    req.user ? next() : res.sendStatus(401);
+    req.user ? next() : res.redirect('/google')
 }
 
 app.use(cors(corsOptions));
@@ -53,16 +57,16 @@ app.use(passport.session());
 //app.use('/auth', authRoutes);
 
 // create home route
-app.get('/', (req, res) => {
+app.get('/', authCheck, (req, res) => {
     res.sendFile(path + "index.html");
 });
 
-app.get('/failed',(req, res)=> res.send('You failed to log in'))
-//app.get('/good',isLoggedIn, (req, res) => res.send('Welcome ' + req.user.displayName))
 app.get('/google',
-    passport.authenticate('google', {scope : ['profile', 'email']}));
+    passport.authenticate('google', {scope : ['profile']
+}));
 
 app.get('/google/callback', passport.authenticate('google'), (req,res) => {
+    //res.send(req.user)
     res.redirect('/');
 });
 
@@ -71,6 +75,10 @@ app.get('/logout', (req, res)=> {
     req.logout();
     res.redirect('/');
 })
+
+app.get('/failed',(req, res)=> res.send('You failed to log in'))
+//app.get('/good',isLoggedIn, (req, res) => res.send('Welcome ' + req.user.displayName))
+
 
 ////var routes = require('./api/dbroutes/todRoutes');
 //routes(app)
