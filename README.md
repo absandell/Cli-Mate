@@ -40,7 +40,7 @@ node app.js
 npm run test
 ```
 
-# MongoDB Atlas instructions ('api' folder)
+## MongoDB Atlas instructions ('api' folder)
 * 'api/routes/todoRoutes.js' creates get and post requests at /logins endpoint
 * 'api/controllers/todoController.js' contains list, create, update, and delete functions
 * 'api/models/todoModel.js' contains the schema for a login, user/password/email
