@@ -38,3 +38,17 @@ node app.js
 ## How to run tests
 ```
 npm run test
+```
+
+##MongoDB Atlas instructions ('api' folder)
+'api/routes/todoRoutes.js' creates get and post requests at /logins endpoints
+'api/controllers/todoController.js' contains list, create, update, and delete functions
+'api/models/todoModel.js' contains the schema for a login, user/password/email
+'config/db.js' contains the connection to MongoDB Atlas through Mongoose (connection url stored in ./keys)
+
+When calls are made to the RESTful API, updates and changes are reflected accordingly to MongoDB Atlas because we have connected.
+
+MongoDB Atlas log-in E-mail:
+```
+cli.mate.mongodb@gmail.com
+```
