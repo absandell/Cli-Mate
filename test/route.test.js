@@ -13,7 +13,6 @@ describe('route tests', ()=> {
             { path: '/google', method: 'get' },
             { path: '/google/redirect', method: 'get' }
         ]
-
         routes.forEach((route) => {
             const match = router.stack.find(
                 (s) => s.route.path === route.path && s.route.methods[route.method]
