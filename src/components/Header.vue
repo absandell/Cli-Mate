@@ -1,7 +1,7 @@
 <template>
     <header>
-        <LogoutButton class='btnLogout'/>
-        <LoginButton />
+        <LogoutButton class='btnLogin' v-if="user"/>
+        <LoginButton class='btnLogin' v-else/>
         <h1 class='welcome'>Welcome to Cli-Mate</h1>
         <HowToUseButton class='btnHow'/>
         <PrevLogButton class='btnPrev'/>
@@ -26,13 +26,14 @@ import GeneralButton from './GeneralButton'
 export default {
     name: 'Header',
     components: {
-    HowToUseButton,
-    PrevLogButton,
-    ExampleEarth,
-    LogoutButton,
-    LoginButton,
-    UserInput,
-    GeneralButton,
-  }
+        HowToUseButton,
+        PrevLogButton,
+        ExampleEarth,
+        LogoutButton,
+        TransportSelect,
+        DestinationEntry,
+        ActivityButton,
+        LoginButton,
+    }
 }
 </script>

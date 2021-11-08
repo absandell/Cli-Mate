@@ -1,5 +1,5 @@
 <template>
-        <button class='btnLogin' v-on:click="GoApp">Login</button>
+    <button class = "btnLogin" v-on:click="GoApp">Login</button>
 </template>
 
 <script>

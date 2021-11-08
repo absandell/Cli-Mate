@@ -8,9 +8,16 @@
       font-size: 100px;
   }
   .welcome {
-      text-align: center;
-      font-size: 50px;
-      padding: 25px;
+    color: white;
+    background-color: green;
+    text-decoration: underline;
+    display: inline-block;
+    position: absolute;
+    top: 8%;
+    left: 20px;
+    font-size: 30px;
+    left: 20px;
+    transform: translateY(-50%);
   }
   body {
     font-family: 'Poppins', sans-serif;
@@ -54,8 +61,8 @@
     font-family: inherit;
     left: 61%;
   }
-  .btnLogout {
-    position: relative;
+  .btnLogin {
+    position: absolute;
     display: inline-block;
     background: red;
     color: #fff;
@@ -67,7 +74,28 @@
     text-decoration: none;
     font-size: 30px;
     font-family: inherit;
-    left: 90%;
+    top: 8%;
+    right: 20px;
+    width: 150px;
+    transform: translateY(-50%)
+    }
+  .btnLogout {
+    position: absolute;
+    display: inline-block;
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: inherit;
+    top: 8%;
+    left: 20px;
+    width: 150px;
+    transform: translateY(-50%)
   }
   .btn:focus {
     outline: none;
@@ -135,23 +163,6 @@
       left: 0px;
       padding-top: 50px;
   }
-  .btnLogin {
-    position: relative;
-    display: inline-block;
-    background: #000;
-    color: #fff;
-    border: none;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 30px;
-    font-family: inherit;
-    top: 0px;
-    right: 9%;
-    width: 120px;
-    height: 60px;
-    }
 
   .popup .overlay {
     position: fixed;
