@@ -20,7 +20,7 @@ const enterActivity = (event) => {
         let t = to.toString();
         let origin = f.replace(/ /g, '+');
         let destination = t.replace(/ /g, '+');
-        let key = 'AIzaSyAAvMb712WSCGPaYrW0HuJ-Y7-V2-yuvI8';
+        let key = '';
         let distanceStr = getDistance(origin, destination, key); // distance is returned as string
         let distance = Number(distanceStr.split(" ")[0])
 
