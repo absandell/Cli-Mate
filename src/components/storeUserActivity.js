@@ -2,6 +2,7 @@ import TransportSelect from './TransportSelect';
 import DestinationEntry from './DestinationEntry';
 import { response } from 'express';
 import getDistance from '../GMD';
+import mapsMatrix from '/Cli-Mate/config/keys.js'
 
 activities = []
 const averageCO2 = 411
@@ -20,7 +21,7 @@ const enterActivity = (event) => {
         let t = to.toString();
         let origin = f.replace(/ /g, '+');
         let destination = t.replace(/ /g, '+');
-        let key = '';
+        let key = mapsMatrix['key'];
         let distanceStr = getDistance(origin, destination, key); // distance is returned as string
         let distance = Number(distanceStr.split(" ")[0])
 
