@@ -1,5 +1,8 @@
-import TransportSelect from './TransportSelect' 
-import DestinationEntry from './DestinationEntry'
+import TransportSelect from './TransportSelect'; 
+import DestinationEntry from './DestinationEntry';
+import { response } from 'express';
+import getDistance from '../GMD';
+
 activities = []
 const averageCO2 = 411
 let PIinThisTravel = 0;
@@ -9,16 +12,22 @@ const enterActivity = (event) => {
         from: document.getElementById('From').value,
         to: document.getElementById('To').value,
     }
+    //user entered all the fields properly
     if (activity.transport !== null && activity.from !== null && activity.to !== null) {
         // calculate distance travelled from the googleAPI
-        let distanceTravelled = 5;
+        origin = 'formatted "from" into this format e.g. "2500+E+Kearney+Springfield+MO+65898"';
+        destination = 'formatted "to" into the same format as above';
+        key = '';
+        let distanceStr = getDistance(origin, destination, key);
+        let distance = Number(distanceStr.split(" ")[0])
+
         // take fuel consumption in Liter/Mile from the dataset of the vehicle
         let fuelLiterPerMile = 1;
-        let totalFuelInLiter = distanceTravelled * fuelLiterPerMile;
+        let totalFuelInLiter = distance * fuelLiterPerMile;
         let totalFuelInGalon = totalFuelInLiter/3.79;
         const CO2PerGalon = 8887;
         let totalCO2 = totalFuelInGalon * CO2PerGalon;
-        let userCO2 = totalCO2 / distanceTravelled;
+        let userCO2 = totalCO2 / distance;
 
         // store activity and userCO2 in the database
         
