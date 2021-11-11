@@ -2,7 +2,7 @@ import TransportSelect from './TransportSelect';
 import DestinationEntry from './DestinationEntry';
 import { response } from 'express';
 import getDistance from '../GMD';
-import mapsMatrix from '/Cli-Mate/config/keys.js'
+import mapsMatrix from '/Cli-Mate/config/keys.js';
 
 activities = []
 const averageCO2 = 411
@@ -19,12 +19,12 @@ const enterActivity = (event) => {
         // 'format "from" and "to" into this format e.g. "2500+E+Kearney+Springfield+MO+65898"'
         let f = from.toString();
         let t = to.toString();
-        let origin = f.replace(/ /g, '+');
-        let destination = t.replace(/ /g, '+');
+        let origin = f.replace(/ /g, '%');
+        let destination = t.replace(/ /g, '%');
         let key = mapsMatrix['key'];
         let distanceStr = getDistance(origin, destination, key); // distance is returned as string
         let distance = Number(distanceStr.split(" ")[0])
-
+        console.log(distance)
         // take fuel consumption in Liter/Mile from the dataset of the vehicle
         let fuelLiterPerMile = 1;
         let totalFuelInLiter = distance * fuelLiterPerMile;
@@ -51,3 +51,11 @@ const enterActivity = (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ActivityButton').addEventListener('click', enterActivity);
 })
+
+// Test
+// let origin = 'New%20York%20City%2C%20NY'
+// let destination = 'Washington%2C%20DC'
+// let key = mapsMatrix['key'];
+// let distanceStr = getDistance(origin, destination, key); // distance is returned as string
+// let distance = Number(distanceStr.split(" ")[0])
+// console.log(distance)
