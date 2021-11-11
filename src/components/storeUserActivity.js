@@ -15,10 +15,13 @@ const enterActivity = (event) => {
     //user entered all the fields properly
     if (activity.transport !== null && activity.from !== null && activity.to !== null) {
         // calculate distance travelled from the googleAPI
-        origin = 'formatted "from" into this format e.g. "2500+E+Kearney+Springfield+MO+65898"';
-        destination = 'formatted "to" into the same format as above';
-        key = '';
-        let distanceStr = getDistance(origin, destination, key);
+        // 'format "from" and "to" into this format e.g. "2500+E+Kearney+Springfield+MO+65898"'
+        let f = from.toString();
+        let t = to.toString();
+        let origin = f.replace(/ /g, '+');
+        let destination = t.replace(/ /g, '+');
+        let key = 'AIzaSyAAvMb712WSCGPaYrW0HuJ-Y7-V2-yuvI8';
+        let distanceStr = getDistance(origin, destination, key); // distance is returned as string
         let distance = Number(distanceStr.split(" ")[0])
 
         // take fuel consumption in Liter/Mile from the dataset of the vehicle
