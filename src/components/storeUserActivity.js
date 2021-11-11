@@ -1,5 +1,9 @@
-import TransportSelect from './TransportSelect' 
-import DestinationEntry from './DestinationEntry'
+import TransportSelect from './TransportSelect'; 
+import DestinationEntry from './DestinationEntry';
+import { response } from 'express';
+import getDistance from '../GMD';
+import mapsMatrix from '/Cli-Mate/config/keys.js';
+
 activities = []
 const averageCO2 = 411
 let PIinThisTravel = 0;
@@ -9,16 +13,25 @@ const enterActivity = (event) => {
         from: document.getElementById('From').value,
         to: document.getElementById('To').value,
     }
+    //user entered all the fields properly
     if (activity.transport !== null && activity.from !== null && activity.to !== null) {
         // calculate distance travelled from the googleAPI
-        let distanceTravelled = 5;
+        // 'format "from" and "to" into this format e.g. "2500+E+Kearney+Springfield+MO+65898"'
+        let f = from.toString();
+        let t = to.toString();
+        let origin = f.replace(/ /g, '%');
+        let destination = t.replace(/ /g, '%');
+        let key = mapsMatrix['key'];
+        let distanceStr = getDistance(origin, destination, key); // distance is returned as string
+        let distance = Number(distanceStr.split(" ")[0])
+        console.log(distance)
         // take fuel consumption in Liter/Mile from the dataset of the vehicle
         let fuelLiterPerMile = 1;
-        let totalFuelInLiter = distanceTravelled * fuelLiterPerMile;
+        let totalFuelInLiter = distance * fuelLiterPerMile;
         let totalFuelInGalon = totalFuelInLiter/3.79;
         const CO2PerGalon = 8887;
         let totalCO2 = totalFuelInGalon * CO2PerGalon;
-        let userCO2 = totalCO2 / distanceTravelled;
+        let userCO2 = totalCO2 / distance;
 
         // store activity and userCO2 in the database
         
@@ -38,3 +51,11 @@ const enterActivity = (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ActivityButton').addEventListener('click', enterActivity);
 })
+
+// Test
+// let origin = 'New%20York%20City%2C%20NY'
+// let destination = 'Washington%2C%20DC'
+// let key = mapsMatrix['key'];
+// let distanceStr = getDistance(origin, destination, key); // distance is returned as string
+// let distance = Number(distanceStr.split(" ")[0])
+// console.log(distance)
