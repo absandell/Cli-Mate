@@ -6,8 +6,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const keys = require('./config/keys');
 const mongoose = require('mongoose');
+const Score = require('./models/score-model');
 //require("./config/db");
 require('./config/passport-setup');
+const scoreAPI = require('./config/score-setup');
 
 const path = __dirname + '/app/views/';
 
@@ -68,6 +70,7 @@ app.get('/logout', (req, res)=> {
     res.redirect('/');
 })
 
+app.use('/api', scoreAPI);
 
 ////var routes = require('./api/dbroutes/todRoutes');
 //routes(app)

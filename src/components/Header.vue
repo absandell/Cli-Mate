@@ -11,6 +11,7 @@
             <h1 class='textLog'>Earth Status: status</h1>
             <h1 class='textLog'>Your performance compared to global average:</h1>
             <h1 class='textLog'>Log new activity:</h1>
+            <UserInput />
         </div>
     </header>
 </template>
@@ -20,6 +21,8 @@ import HowToUseButton from './HowToUseButton'
 import ExampleEarth from './ExampleEarth'
 import LogoutButton from './LogoutButton'
 import LoginButton from './LoginButton'
+import UserInput from './UserInput'
+
 
 export default {
     name: 'Header',
@@ -28,6 +31,7 @@ export default {
         ExampleEarth,
         LogoutButton,
         LoginButton,
+        UserInput
     }
 }
 </script>

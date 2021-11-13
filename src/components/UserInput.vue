@@ -1,5 +1,5 @@
 <template>
-    <select v-model="selected" class='TransportSelect' id='transport'>
+    <select v-model="score.type" class='TransportSelect' id='transport'>
     <option disabled value="">Please select one</option>
     <option>Automobile</option>
     <option>Walk</option>
@@ -8,16 +8,28 @@
 
     <form class='DestinationEntry'>
       <label for="fname">From:</label><br>
-      <input type="text" id="from" name="From" ref='From'><br>
+      <input type="text" v-model="score.fromAddress" id="from" name="From" ref='From'><br>
       <label for="lname">To:</label><br>
-      <input type="text" id="to" name="To" ref='To'>
+      <input type="text" v-model="score.toAddress" id="to" name="To" ref='To'>
     </form>
 
     <button class='btnActivity' v-on:click="EnterInput">Enter Activity</button>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
+    data() {
+        return {
+            score: {
+                type: '',
+                fromAddress: '',
+                toAddress: '',
+            }
+        }
+    },
+
     name: 'UserInput',
 
     methods:{
@@ -28,6 +40,20 @@ export default {
             console.log(transport);
             console.log(from);
             console.log(to);
+            
+            let apiURL = 'http://localhost:8080/api/insert';
+                
+                axios.post(apiURL, this.score).then(() => {
+                  this.$router.push('/')
+                  this.score = {
+                    type: '',
+                    fromAddress: '',
+                    toAddress: '',
+                  }
+                }).catch(error => {
+                    console.log(error)
+                });
+
         }
     }
 }
