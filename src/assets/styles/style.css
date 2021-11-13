@@ -89,6 +89,24 @@
     width: 150px;
     transform: translateY(-50%)
     }
+  .btnSubmit {
+    position: absolute;
+    display: inline-block;
+    background: rgb(69, 44, 158);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: inherit;
+    top: 8%;
+    right: 0px;
+    width: 150px;
+    transform: translateY(-50%)
+    }
   .headerbg.btnLogout {
     position: absolute;
     display: inline-block;
