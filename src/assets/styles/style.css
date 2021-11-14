@@ -69,7 +69,7 @@
     text-decoration: none;
     font-size: 30px;
     font-family: inherit;
-    top: 25%;
+    top: 10%;
     left: 43%;
   }
   .btnLogin {
@@ -150,7 +150,7 @@
     margin-top: 15px;
     position: relative;
     background-color: green;
-    height: 550px;
+    height: 1350px;
   }
   .textLog {
     color:white;

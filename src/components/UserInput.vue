@@ -1,4 +1,13 @@
 <template>
+
+    <img v-if="statusText == 'Very Bad'" class='planet' src="../assets/Earth1.png">
+    <img v-if="statusText == 'Bad'" class='planet' src="../assets/Earth2.png">
+    <img v-if="statusText == 'Neutral'" class='planet' src="../assets/Earth3.png">
+    <img v-if="statusText == 'Good'" class='planet' src="../assets/Earth4.png">
+    <img v-if="statusText == 'Very Good'" class='planet' src="../assets/Earth5.png">
+    <h1 class='textLog'>Earth Status: {{fullText}} </h1>
+    <h1 class='textLog'>Log new activity:</h1>
+
     <select v-model="score.type" class='TransportSelect' id='transport'>
     <option disabled value="">Please select one</option>
     <option>Automobile</option>
@@ -14,12 +23,18 @@
     </form>
 
     <button class='btnActivity' v-on:click="EnterInput">Enter Activity</button>
+    <PrevLogButton />
 </template>
 
 <script>
 import axios from "axios";
+import PrevLogButton from './PrevLogButton'
 
 export default {
+    components: {
+        PrevLogButton,
+    },
+
     data() {
         return {
             score: {
@@ -31,6 +46,20 @@ export default {
     },
 
     name: 'UserInput',
+
+    props: {
+        statusText: {
+            type: String,
+            required: true,
+            default: "Neutral",
+        },
+    },
+
+    computed: {
+        fullText() {
+            return this.statusText;
+        },
+    },
 
     methods:{
         EnterInput(){
