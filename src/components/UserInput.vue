@@ -40,6 +40,29 @@ export default {
             console.log(transport);
             console.log(from);
             console.log(to);
+
+            const averageCO2 = 411;
+            let PIinThisTravel = 0;
+            let distanceTravelled = 5;
+            let fuelLiterPerMile = 1;
+
+            let totalFuelInLiter = distanceTravelled * fuelLiterPerMile;
+            let totalFuelInGalon = totalFuelInLiter/3.79;
+            const CO2PerGalon = 8887;
+            let totalCO2 = totalFuelInGalon * CO2PerGalon;
+            let userCO2 = totalCO2 / distanceTravelled;
+
+            if (userCO2 === averageCO2) {
+                PIinThisTravel = 0;
+            }
+            else if (userCO2 > averageCO2) {
+                PIinThisTravel = -1 * userCO2/averageCO2;
+            }
+            else {
+                PIinThisTravel = Math.max(10, averageCO2/userCO2);
+            }
+
+            console.log(PIinThisTravel);
             
             let apiURL = 'http://localhost:8080/api/insert';
                 
