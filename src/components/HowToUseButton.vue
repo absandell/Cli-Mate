@@ -17,8 +17,6 @@
                 <h1 class='popupBody'>More transportation using automobiles will negatively affect the Earth, lowering your performance and showing a more sickly Earth.</h1>
                 <h1 class='popupBody'>Whereas transportation by walking/biking will positively affect the Earth, increasing your performance and showing a more healthy Earth.</h1>
                 <br>
-                <h1 class='popupBody'>You can view the "General Information" section to view tips and other ways to help the environment.</h1>
-                <br>
                 <h1 class='popupBody'>Hope you enjoy the app and lets save the Earth together!</h1>
             </div>
         </div>
