@@ -69,7 +69,8 @@
     text-decoration: none;
     font-size: 30px;
     font-family: inherit;
-    left: 61%;
+    top: 25%;
+    left: 43%;
   }
   .btnLogin {
     position: absolute;
@@ -149,7 +150,7 @@
     margin-top: 15px;
     position: relative;
     background-color: green;
-    height: 300px;
+    height: 550px;
   }
   .textLog {
     color:white;

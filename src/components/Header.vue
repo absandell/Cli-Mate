@@ -9,9 +9,9 @@
         <ExampleEarth class='planet'/>
         <div class = "info">
             <h1 class='textLog'>Earth Status: status</h1>
-            <h1 class='textLog'>Your performance compared to global average:</h1>
             <h1 class='textLog'>Log new activity:</h1>
             <UserInput />
+            <PrevLogButton />
         </div>
     </header>
 </template>
@@ -22,6 +22,7 @@ import ExampleEarth from './ExampleEarth'
 import LogoutButton from './LogoutButton'
 import LoginButton from './LoginButton'
 import UserInput from './UserInput'
+import PrevLogButton from './PrevLogButton'
 
 
 export default {
@@ -31,7 +32,8 @@ export default {
         ExampleEarth,
         LogoutButton,
         LoginButton,
-        UserInput
+        UserInput,
+        PrevLogButton,
     }
 }
 </script>
