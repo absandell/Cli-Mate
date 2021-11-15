@@ -20,6 +20,7 @@
     "cookie-session": "^1.4.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
+    "jest-environment-jsdom": "^27.3.1",
     "mongoose": "^6.0.12",
     "passport": "^0.5.0",
     "passport-google-oauth2": "^0.2.0",
@@ -33,6 +34,7 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "@vue/test-utils": "^2.0.0-rc.16",
     "babel-eslint": "^10.1.0",
     "ejs": "^3.1.6",
     "eslint": "^6.7.2",
@@ -69,5 +71,8 @@
   "bugs": {
     "url": "https://github.com/absandell/Cli-Mate/issues"
   },
-  "homepage": "https://github.com/absandell/Cli-Mate#readme"
+  "homepage": "https://github.com/absandell/Cli-Mate#readme",
+  "jest": {
+    "testEnvironment": "./test/customEnv.js"
+  }
 }
