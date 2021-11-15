@@ -8,16 +8,8 @@ const scoreSchema = new Schema({
         type: String,
         required: true,
     },
-    fromAddress: {
+    Address: {
         type: String,
-        required: true
-    },
-    toAddress: {
-        type: String,
-        required: true
-    },
-    performanceIndex: {
-        type: Number,
         required: true
     },
 });

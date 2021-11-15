@@ -12,7 +12,7 @@
 
     <form class='DestinationEntry'>
         <label for="fname">Distance:</label><br>
-        <input type="text" v-model="score.fromAddress" id="distance" name="Distance" ref='Distance'><br>
+        <input type="text" v-model="score.Address" id="distance" name="Distance" ref='Distance'><br>
     </form>
 
     <button class='btnActivity' v-on:click="EnterInput">Enter Activity</button>
@@ -32,9 +32,7 @@ export default {
         return {
             score: {
                 type: '',
-                fromAddress: '',
-                toAddress: '',
-                performanceIndex: 0,
+                Address: '',
             }
         }
     },
@@ -113,9 +111,7 @@ export default {
                     this.$router.push('/')
                     this.score = {
                     type: '',
-                    fromAddress: '',
-                    toAddress: '',
-                    performanceIndex: 0,
+                    Address: '',
                     }
                 }).catch(error => {
                     console.log(error)
