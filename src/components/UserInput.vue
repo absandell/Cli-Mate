@@ -16,10 +16,8 @@
     </select>
 
     <form class='DestinationEntry'>
-      <label for="fname">From:</label><br>
-      <input type="text" v-model="score.fromAddress" id="from" name="From" ref='From'><br>
-      <label for="lname">To:</label><br>
-      <input type="text" v-model="score.toAddress" id="to" name="To" ref='To'>
+      <label for="fname">Distance:</label><br>
+      <input type="text" v-model="score.fromAddress" id="distance" name="Distance" ref='Distance'><br>
     </form>
 
     <button class='btnActivity' v-on:click="EnterInput">Enter Activity</button>
@@ -64,31 +62,26 @@ export default {
     methods:{
         EnterInput(){
             var transport = document.getElementById('transport').value;
-            var from = document.getElementById('from').value;
-            var to = document.getElementById('to').value;
+            var distance = document.getElementById('distance').value;
             console.log(transport);
-            console.log(from);
-            console.log(to);
+            console.log(distance);
 
             const averageCO2 = 411;
             let PIinThisTravel = 0;
-            let distanceTravelled = 5;
+            let distanceTravelled = parseInt(distance);
             let fuelLiterPerMile = 1;
 
             let totalFuelInLiter = distanceTravelled * fuelLiterPerMile;
             let totalFuelInGalon = totalFuelInLiter/3.79;
             const CO2PerGalon = 8887;
             let totalCO2 = totalFuelInGalon * CO2PerGalon;
-            let userCO2 = totalCO2 / distanceTravelled;
+            let userCO2 = totalCO2 * distanceTravelled;
 
-            if (userCO2 === averageCO2) {
-                PIinThisTravel = 0;
-            }
-            else if (userCO2 > averageCO2) {
+            if (transport == "Automobile") {
                 PIinThisTravel = -1 * userCO2/averageCO2;
             }
             else {
-                PIinThisTravel = Math.max(10, averageCO2/userCO2);
+                PIinThisTravel = 1 * userCO2/averageCO2;
             }
 
             console.log(PIinThisTravel);
