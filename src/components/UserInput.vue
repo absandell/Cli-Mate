@@ -41,6 +41,7 @@ export default {
                 type: '',
                 fromAddress: '',
                 toAddress: '',
+                performanceIndex: 0,
             }
         }
     },
@@ -94,13 +95,16 @@ export default {
             console.log(PIinThisTravel);
             
             let apiURL = 'http://localhost:8080/api/insert';
-                
+                //calculate distance here
+                //cross-reference w/ vehicle emissions
+                //calculate CPI
                 axios.post(apiURL, this.score).then(() => {
                   this.$router.push('/')
                   this.score = {
                     type: '',
                     fromAddress: '',
                     toAddress: '',
+                    performanceIndex: 0,
                   }
                 }).catch(error => {
                     console.log(error)
