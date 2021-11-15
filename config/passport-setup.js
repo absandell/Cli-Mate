@@ -33,7 +33,9 @@ passport.use(
                     console.log('new user created: ' + newUser);
                     done(null, newUser);
                 })
+                //export let googleVar = profile.id;
             }
         })
+        
     }
 ));
