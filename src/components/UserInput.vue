@@ -1,11 +1,6 @@
 <template>
-
-    <img v-if="statusText == 'Very Bad'" class='planet' src="../assets/Earth1.png">
-    <img v-if="statusText == 'Bad'" class='planet' src="../assets/Earth2.png">
-    <img v-if="statusText == 'Neutral'" class='planet' src="../assets/Earth3.png">
-    <img v-if="statusText == 'Good'" class='planet' src="../assets/Earth4.png">
-    <img v-if="statusText == 'Very Good'" class='planet' src="../assets/Earth5.png">
-    <h1 class='textLog'>Earth Status: {{fullText}} </h1>
+    <img class='planet' src="../assets/Earth4.png" id='earth'>
+    <h1 class='textLog' id='status'>Earth Status: Neutral</h1>
     <h1 class='textLog'>Log new activity:</h1>
 
     <select v-model="score.type" class='TransportSelect' id='transport'>
@@ -46,23 +41,19 @@ export default {
     name: 'UserInput',
 
     props: {
-        statusText: {
-            type: String,
-            required: true,
-            default: "Neutral",
-        },
+
     },
 
     computed: {
-        fullText() {
-            return this.statusText;
-        },
+
     },
 
     methods:{
         EnterInput(){
             var transport = document.getElementById('transport').value;
             var distance = document.getElementById('distance').value;
+            var status = document.getElementById('status').value;
+            var image = "";
             console.log(transport);
             console.log(distance);
 
@@ -83,6 +74,33 @@ export default {
             else {
                 PIinThisTravel = 1 * userCO2/averageCO2;
             }
+
+            if (PIinThisTravel < -500) {
+                status = "Earth Status: Very Bad";
+                image = '../assets/Earth1.png';
+            }
+            else if (PIinThisTravel < -100) {
+                status = "Earth Status: Bad";
+                image = "../assets/Earth2.png";
+            }
+            else if (PIinThisTravel < 0 && PIinThisTravel < 100)
+            {
+                status = "Earth Status: Neutral";
+                image = "../assets/Earth3.png";
+            }
+            else if (PIinThisTravel > 500) {
+                status = "Earth Status: Very Good";
+                image = "../assets/Earth5.png";
+            }
+            else {
+                status = "Earth Status: Good";
+                image = "../assets/Earth4.png";
+            }
+
+            //document.getElementById('earth').src = image;
+            document.getElementById('status').innerHTML = status;
+            console.log(status);
+            console.log(image);
 
             console.log(PIinThisTravel);
             
