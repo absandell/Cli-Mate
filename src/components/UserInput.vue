@@ -18,6 +18,7 @@
 
 <script>
 import axios from "axios";
+//import { googleVar } from "../config/passport-setup";
 
 export default {
     data() {
@@ -26,6 +27,7 @@ export default {
                 type: '',
                 fromAddress: '',
                 toAddress: '',
+                performanceIndex: 0,
             }
         }
     },
@@ -42,13 +44,16 @@ export default {
             console.log(to);
             
             let apiURL = 'http://localhost:8080/api/insert';
-                
+                //calculate distance here
+                //cross-reference w/ vehicle emissions
+                //calculate CPI
                 axios.post(apiURL, this.score).then(() => {
                   this.$router.push('/')
                   this.score = {
                     type: '',
                     fromAddress: '',
                     toAddress: '',
+                    performanceIndex: 0,
                   }
                 }).catch(error => {
                     console.log(error)

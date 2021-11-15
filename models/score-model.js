@@ -16,6 +16,10 @@ const scoreSchema = new Schema({
         type: String,
         required: true
     },
+    performanceIndex: {
+        type: Number,
+        required: true
+    },
 });
 
 const Score = mongoose.model('score', scoreSchema)
