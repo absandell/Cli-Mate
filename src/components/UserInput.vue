@@ -16,8 +16,8 @@
     </select>
 
     <form class='DestinationEntry'>
-      <label for="fname">Distance:</label><br>
-      <input type="text" v-model="score.fromAddress" id="distance" name="Distance" ref='Distance'><br>
+        <label for="fname">Distance:</label><br>
+        <input type="text" v-model="score.fromAddress" id="distance" name="Distance" ref='Distance'><br>
     </form>
 
     <button class='btnActivity' v-on:click="EnterInput">Enter Activity</button>
@@ -92,13 +92,13 @@ export default {
                 //cross-reference w/ vehicle emissions
                 //calculate CPI
                 axios.post(apiURL, this.score).then(() => {
-                  this.$router.push('/')
-                  this.score = {
+                    this.$router.push('/')
+                    this.score = {
                     type: '',
                     fromAddress: '',
                     toAddress: '',
                     performanceIndex: 0,
-                  }
+                    }
                 }).catch(error => {
                     console.log(error)
                 });
