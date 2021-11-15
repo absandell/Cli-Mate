@@ -1,5 +1,4 @@
 const express = require('express');
-//const authRoutes = require('./app/routes/auth-routes');
 const passport = require('passport')
 const cookieSession = require('cookie-session');
 const bodyParser = require("body-parser");
@@ -7,7 +6,6 @@ const cors = require("cors");
 const keys = require('./config/keys');
 const mongoose = require('mongoose');
 const Score = require('./models/score-model');
-//require("./config/db");
 require('./config/passport-setup');
 const scoreAPI = require('./config/score-setup');
 
@@ -33,9 +31,6 @@ err => {
 };
 
 app.use(express.static(path));
-
-// set view engine
-//app.set('view engine', 'ejs');
 
 var corsOptions = {
     origin: "http://localhost:8080"
@@ -71,9 +66,6 @@ app.get('/logout', (req, res)=> {
 })
 
 app.use('/api', scoreAPI);
-
-////var routes = require('./api/dbroutes/todRoutes');
-//routes(app)
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
