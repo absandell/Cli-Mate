@@ -39,6 +39,7 @@ export default {
                 type: '',
                 fromAddress: '',
                 toAddress: '',
+                distanceStr: '',
                 performanceIndex: 0,
             }
         }
@@ -58,6 +59,19 @@ export default {
         fullText() {
             return this.statusText;
         },
+    },
+
+    created() {
+        let origin = 'New%20York%20City%2C%20NY';
+        let destination = 'Washington%2C%20DC';
+        let key = 'AIzaSyDbNa6oUwctkBvSKZixHrtW_IE3zrABBJA';
+        // apiURL = 'https://maps.googleapis.com/maps/api/distancematrix/json?destinations=New%20York%20City%2C%20NY&origins=Washington%2C%20DC&key=AIzaSyDbNa6oUwctkBvSKZixHrtW_IE3zrABBJA';
+        apiURL = `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${destination}&origins=S{origin}&key=${key}`;
+        axios.get(apiURL).then(res => {
+                this.distanceStr = res.data;
+            }).catch(error => {
+                console.log(error)
+            });
     },
 
     methods:{
