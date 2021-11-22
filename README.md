@@ -61,12 +61,16 @@ https://maps.googleapis.com/maps/api/distancematrix/json?destinations=New%20York
 While integration is not completed with the front-end, the matrix calculation is functional on the backend and can be used to calculate distance between two points if hard-coded. The above link is a reflection of our current hard-coded value, which can be translated to a Carbon Performance Index (CPI) value if we connected it to user-input.
 
 ## Demonstration of Functionality
-Activity Reporting:
+### Activity Reporting:
+
 ![Alt Text](https://github.com/absandell/Cli-Mate/blob/main/assets/Fall21_11249_Cli-Mate_1.gif)
-Logging in using Google OAuth:
+
+### Logging in using Google OAuth:
+
 ![Alt Text](https://github.com/absandell/Cli-Mate/blob/main/assets/Fall21_11249_Cli-Mate_2.gif)
-Page Design and Responsiveness
+
+### Page Design and Responsiveness
 ![Alt Text](https://github.com/absandell/Cli-Mate/blob/main/assets/Fall21_11249_Cli-Mate_3.gif)
 
 ## Team Product Presentation
-![Image Alt Text](https://youtu.be/tdaoeRC6cGg)
+[![Alt Text[ (https://youtu.be/tdaoeRC6cGg/0.jpg)](https://youtu.be/tdaoeRC6cGg)
