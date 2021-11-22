@@ -52,3 +52,10 @@ MongoDB Atlas log-in E-mail:
 ```
 cli.mate.mongodb@gmail.com
 ```
+
+## Google Maps Matrix API
+To use, navigate to the following link:
+```
+https://maps.googleapis.com/maps/api/distancematrix/json?destinations=New%20York%20City%2C%20NY&origins=Washington%2C%20DC&key=AIzaSyDbNa6oUwctkBvSKZixHrtW_IE3zrABBJA
+```
+While integration is not completed with the front-end, the matrix calculation is functional on the backend and can be used to calculate distance between two points if hard-coded. The above link is a reflection of our current hard-coded value, which can be translated to a Carbon Performance Index (CPI) value if we connected it to user-input.
