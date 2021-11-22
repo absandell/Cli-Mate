@@ -73,4 +73,4 @@ While integration is not completed with the front-end, the matrix calculation is
 ![Alt Text](https://github.com/absandell/Cli-Mate/blob/main/assets/Fall21_11249_Cli-Mate_3.gif)
 
 ## Team Product Presentation
-[![Alt Text[ (https://youtu.be/tdaoeRC6cGg/0.jpg)](https://youtu.be/tdaoeRC6cGg)
+![Link to Recording](https://youtu.be/tdaoeRC6cGg)
